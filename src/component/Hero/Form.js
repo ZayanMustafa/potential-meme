@@ -8,7 +8,7 @@ import InputField from "../UI/Input";
 const FormSection = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    name: '',
+    fullName: '',
     vin: '',
     model: '',
     year: ''
@@ -26,22 +26,30 @@ const FormSection = () => {
 
     try {
       // Save to database
-      // const response = await fetch('/api/save-report', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(formData),
-      // });
+      const response = await fetch('https://fusionbackend-nine.vercel.app/vin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
+
+
+      const data = await response.json();
+      console.log('Response from server:', data);
       // if (!response.ok) throw new Error('Failed to save data');
 
       // Redirect to package page
       router.push('/package');
+    
     } catch (error) {
+      
       // console.error('Submission error:', error);
       // Still redirect even if saving fails (per your requirement)
       router.push('/package');
+
+
     } finally {
       setIsSubmitting(false);
     }
@@ -57,9 +65,9 @@ const FormSection = () => {
           <div className="space-y-6">
             <InputField
               label="Full Name"
-              id="name"
-              name="name"
-              value={formData.name}
+              id="fullName"
+              name="fullName"
+              value={formData.fullName}
               onChange={handleInputChange}
               inputSize="lg"
               required
