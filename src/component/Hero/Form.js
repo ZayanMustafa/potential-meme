@@ -26,7 +26,7 @@ const FormSection = () => {
   
     try {
       // Save to database
-      const response = await fetch('http://localhost:5000/vin', {
+      const response = await fetch('https://fussionreportbackend.vercel.app/vin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
