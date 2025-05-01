@@ -36,7 +36,7 @@ const Footer = () => {
                 <Link 
                   key={item.name} 
                   href={item.href} 
-                  className="text-gray-500 hover:text-red-600 transition text-2xl"
+                  className="text-gray-500 hover:text-blue-600 transition text-2xl"
                   aria-label={item.name}
                 >
                   {socialIcons[item.name]}
@@ -48,13 +48,13 @@ const Footer = () => {
           {/* Links Columns */}
           {footerData.links.map((column) => (
             <div key={column.title} className="space-y-4">
-              <h3 className="text-lg font-semibold text-red-600">{column.title}</h3>
+              <h3 className="text-lg font-semibold text-blue-600">{column.title}</h3>
               <ul className="space-y-2">
                 {column.items.map((item) => (
                   <li key={item.name}>
                     <Link 
                       href={item.href} 
-                      className="text-gray-600 hover:text-red-600 transition flex items-center gap-1"
+                      className="text-gray-600 hover:text-blue-600 transition flex items-center gap-1"
                     >
                       {item.name}
                     </Link>
@@ -66,26 +66,26 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-red-600">Contact Us</h3>
+            <h3 className="text-lg font-semibold text-blue-600">Contact Us</h3>
             <address className="not-italic text-gray-600 space-y-3">
               <p className="flex items-center gap-2">
-                <MdLocationOn className="text-red-600" />
+                <MdLocationOn className="text-blue-600" />
                 {footerData.contact.address}
               </p>
               <p className="flex items-center gap-2">
-                <MdPhone className="text-red-600" />
+                <MdPhone className="text-blue-600" />
                 <Link 
                   href={`tel:${footerData.contact.phone}`} 
-                  className="hover:text-red-600 transition"
+                  className="hover:text-blue-600 transition"
                 >
                   {footerData.contact.phone}
                 </Link>
               </p>
               <p className="flex items-center gap-2">
-                <MdEmail className="text-red-600" />
+                <MdEmail className="text-blue-600" />
                 <Link 
                   href={`mailto:${footerData.contact.email}`} 
-                  className="hover:text-red-600 transition"
+                  className="hover:text-blue-600 transition"
                 >
                   {footerData.contact.email}
                 </Link>

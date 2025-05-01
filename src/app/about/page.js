@@ -23,7 +23,7 @@ const AboutPage = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
                 {ABOUT_CONTENT.stats.map((stat, index) => (
                     <div key={index} className="bg-white p-4 sm:p-6 rounded-xl shadow-sm sm:shadow-md text-center border border-gray-200">
-                        <p className="text-3xl sm:text-4xl font-bold text-red-600 mb-2">{stat.value}</p>
+                        <p className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">{stat.value}</p>
                         <p className="text-base sm:text-lg text-gray-700">{stat.label}</p>
                     </div>
                 ))}

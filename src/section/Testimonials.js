@@ -63,7 +63,7 @@ const Testimonials = () => {
     <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
-        <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
+        <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
         <p className="text-xl text-gray-600">
           Trusted by vehicle buyers across {testimonials.length} countries
         </p>
@@ -85,7 +85,7 @@ const Testimonials = () => {
               className="w-full flex-shrink-0 px-4"
             >
               <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200">
-                <FaQuoteLeft className="text-red-600 text-3xl mb-6 opacity-30" />
+                <FaQuoteLeft className="text-blue-600 text-3xl mb-6 opacity-30" />
                 <p className="text-lg text-gray-700 mb-6">{testimonial.content}</p>
                 
                 <div className="flex items-center justify-between">
@@ -110,13 +110,13 @@ const Testimonials = () => {
         {/* Navigation Arrows */}
         <button 
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white p-3 rounded-full shadow-md border border-gray-200 hover:bg-red-50 text-red-600 transition-colors"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white p-3 rounded-full shadow-md border border-gray-200 hover:bg-blue-50 text-blue-600 transition-colors"
         >
           <FaChevronLeft />
         </button>
         <button 
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-white p-3 rounded-full shadow-md border border-gray-200 hover:bg-red-50 text-red-600 transition-colors"
+          className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-white p-3 rounded-full shadow-md border border-gray-200 hover:bg-blue-50 text-blue-600 transition-colors"
         >
           <FaChevronRight />
         </button>
@@ -127,7 +127,7 @@ const Testimonials = () => {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-3 h-3 rounded-full ${i === current ? 'bg-red-600' : 'bg-gray-300'}`}
+              className={`w-3 h-3 rounded-full ${i === current ? 'bg-blue-600' : 'bg-gray-300'}`}
               aria-label={`Go to testimonial ${i + 1}`}
             />
           ))}

@@ -1,5 +1,6 @@
 // components/PaymentModal.js
 'use client';
+import { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
@@ -31,7 +32,7 @@ const CheckoutForm = ({ vehicleType, price, onClose }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         paymentMethodId: paymentMethod.id,
-        amount: price * 100, // Convert to cents
+        amount: price * 100, 
         vehicleType,
       }),
     });

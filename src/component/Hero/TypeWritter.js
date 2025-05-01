@@ -37,7 +37,7 @@ const TypeWriter = ({ words, currentIndex }) => {
   }, [currentText, isDeleting, currentIndex, words]);
 
   return (
-    <span className="text-red-400 font-medium">
+    <span className="text-blue-400 font-medium">
       {currentText}
       <span className="animate-pulse">|</span>
     </span>

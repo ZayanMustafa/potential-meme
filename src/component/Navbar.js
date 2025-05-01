@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
             <Link href="/" className="flex items-center">
-              <FaCar className="h-7 w-7 text-red-600" />
+              <FaCar className="h-7 w-7 text-blue-600" />
               <span className="ml-2 text-xl font-bold text-gray-900">FUSION</span>
             </Link>
 
@@ -45,7 +45,7 @@ const Navbar = () => {
                   key={item.name}
                   href={item.path}
                   className={`flex items-center text-base ${
-                    activeLink === item.name ? 'text-red-600' : 'text-gray-700 hover:text-red-600'
+                    activeLink === item.name ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
                   }`}
                   onClick={() => setActiveLink(item.name)}
                 >
@@ -66,14 +66,14 @@ const Navbar = () => {
               key={item.name}
               href={item.path}
               className={`flex flex-col items-center justify-center py-3 px-2 w-full ${
-                activeLink === item.name ? 'text-red-600' : 'text-gray-500'
+                activeLink === item.name ? 'text-blue-600' : 'text-gray-500'
               }`}
               onClick={() => setActiveLink(item.name)}
             >
               <div className="text-xl mb-1">{item.icon}</div>
               <span className="text-xs">{item.name}</span>
               {activeLink === item.name && (
-                <div className="w-1/2 h-1 bg-red-600 rounded-t-full mt-1"></div>
+                <div className="w-1/2 h-1 bg-blue-600 rounded-t-full mt-1"></div>
               )}
             </Link>
           ))}

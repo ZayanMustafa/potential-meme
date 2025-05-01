@@ -99,7 +99,7 @@ const FormSection = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full bg-red-600 hover:bg-red-700 text-white font-bold py-5 px-6 rounded-lg transition duration-300 text-xl ${
+              className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 px-6 rounded-lg transition duration-300 text-xl ${
                 isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
               }`}
             >

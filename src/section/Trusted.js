@@ -33,7 +33,7 @@ const TrustedWorldwide = () => {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-8"
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-8"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ const TrustedWorldwide = () => {
               transition={{ type: 'spring', stiffness: 300 }}
               className="flex flex-col items-center group"
             >
-              <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden shadow-lg border-2 border-white group-hover:border-red-400 transition-all duration-300">
+              <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden shadow-lg border-2 border-white group-hover:border-blue-400 transition-all duration-300">
                 <Image
                     width={96}
                     height={96} 
@@ -73,7 +73,7 @@ const TrustedWorldwide = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent" />
               </div>
-              <p className="text-lg font-medium text-gray-900 group-hover:text-red-600 transition-colors">
+              <p className="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
                 {country.name}
               </p>
             </motion.div>
@@ -90,7 +90,7 @@ const TrustedWorldwide = () => {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-white to-blue-50 p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all"
           >
-            <div className="bg-gradient-to-r from-red-500 to-red-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-md">
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-md">
               <FaGlobeAmericas className="text-white text-2xl" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Global Standards</h3>
@@ -105,7 +105,7 @@ const TrustedWorldwide = () => {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-white to-blue-50 p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all"
           >
-            <div className="bg-gradient-to-r from-red-500 to-red-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-md">
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-md">
               <FaShieldAlt className="text-white text-2xl" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Military-Grade Security</h3>
@@ -120,7 +120,7 @@ const TrustedWorldwide = () => {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-white to-blue-50 p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all"
           >
-            <div className="bg-gradient-to-r from-red-500 to-red-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-md">
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-md">
               <FaHandshake className="text-white text-2xl" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Government Verified</h3>

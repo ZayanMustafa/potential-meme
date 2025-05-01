@@ -1,8 +1,7 @@
-// components/ContactPage.js
 'use client';
 import { useState } from 'react';
 import { FaPaperPlane, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
-// import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import InputField from '@/component/UI/Input';
 
 const ContactPage = () => {
@@ -31,7 +30,7 @@ const ContactPage = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         formData,
-        process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
       
       setSubmitStatus('success');
@@ -65,7 +64,7 @@ const ContactPage = () => {
           )}
           
           {submitStatus === 'error' && (
-            <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-md">
+            <div className="mb-6 p-4 bg-blue-100 text-blue-700 rounded-md">
               Oops! Something went wrong. Please try again later.
             </div>
           )}
@@ -79,6 +78,7 @@ const ContactPage = () => {
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
+                required
               />
 
               <InputField
@@ -88,6 +88,7 @@ const ContactPage = () => {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
+                required
               />
 
               <div>
@@ -100,7 +101,7 @@ const ContactPage = () => {
                   rows="5"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   required
                 />
               </div>
@@ -108,7 +109,7 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center py-3 px-6 bg-red-600 hover:bg-red-700 text-white font-bold rounded-md transition-colors duration-300"
+                className="w-full flex items-center justify-center py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-md transition-colors duration-300"
               >
                 {isSubmitting ? (
                   'Sending...'
@@ -131,7 +132,7 @@ const ContactPage = () => {
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-100 p-3 rounded-full mr-4">
-                  <FaMapMarkerAlt className="text-red-600 text-xl" />
+                  <FaMapMarkerAlt className="text-blue-600 text-xl" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Our Office</h3>
@@ -141,7 +142,7 @@ const ContactPage = () => {
 
               <div className="flex items-start">
                 <div className="bg-blue-100 p-3 rounded-full mr-4">
-                  <FaPhone className="text-red-600 text-xl" />
+                  <FaPhone className="text-blue-600 text-xl" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Phone Number</h3>
@@ -151,22 +152,13 @@ const ContactPage = () => {
 
               <div className="flex items-start">
                 <div className="bg-blue-100 p-3 rounded-full mr-4">
-                  <FaEnvelope className="text-red-600 text-xl" />
+                  <FaEnvelope className="text-blue-600 text-xl" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Email Address</h3>
                   <p className="text-gray-600">support@vehiclecheck.com</p>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Operating Hours</h2>
-            <div className="space-y-2 text-gray-700">
-              <p className="flex justify-between"><span>Monday - Friday</span> <span>9:00 AM - 6:00 PM</span></p>
-              <p className="flex justify-between"><span>Saturday</span> <span>10:00 AM - 4:00 PM</span></p>
-              <p className="flex justify-between"><span>Sunday</span> <span>Closed</span></p>
             </div>
           </div>
         </div>

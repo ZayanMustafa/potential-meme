@@ -5,11 +5,11 @@ const InfoSection = ({ currentTypeIndex, currentText }) => {
   const getVehicleIcon = () => {
     const vehicleTypes = ['Car', 'Bike', 'Truck', 'Ship'];
     switch(vehicleTypes[currentTypeIndex]) {
-      case 'Car': return <FaCar className="text-red-600 text-5xl" />;
-      case 'Bike': return <FaMotorcycle className="text-red-600 text-5xl" />;
-      case 'Truck': return <FaTruck className="text-red-600 text-5xl" />;
-      case 'Ship': return <FaShip className="text-red-600 text-5xl" />;
-      default: return <FaCar className="text-red-600 text-5xl" />;
+      case 'Car': return <FaCar className="text-blue-600 text-5xl" />;
+      case 'Bike': return <FaMotorcycle className="text-blue-600 text-5xl" />;
+      case 'Truck': return <FaTruck className="text-blue-600 text-5xl" />;
+      case 'Ship': return <FaShip className="text-blue-600 text-5xl" />;
+      default: return <FaCar className="text-blue-600 text-5xl" />;
     }
   };
 
@@ -26,25 +26,25 @@ const InfoSection = ({ currentTypeIndex, currentText }) => {
       </h2>
       <p className="text-2xl mb-10">
         Instant reports for your{' '}
-        <span className="text-red-400 font-medium">
+        <span className="text-blue-400 font-medium">
           {currentText}
         </span>
       </p>
       <ul className="space-y-3 text-xl">
         <li className="flex items-center">
-          <span className="w-2 h-2 bg-red-500 rounded-full me-5"></span>
+          <span className="w-2 h-2 bg-blue-500 rounded-full me-5"></span>
           <span>Accident & Damage History</span>
         </li>
         <li className="flex items-center">
-          <span className="w-2 h-2 bg-red-500 rounded-full me-5"></span>
+          <span className="w-2 h-2 bg-blue-500 rounded-full me-5"></span>
           <span>Ownership Records</span>
         </li>
         <li className="flex items-center">
-          <span className="w-2 h-2 bg-red-500 rounded-full me-5"></span>
+          <span className="w-2 h-2 bg-blue-500 rounded-full me-5"></span>
           <span>Service History</span>
         </li>
         <li className="flex items-center">
-          <span className="w-2 h-2 bg-red-500 rounded-full me-5"></span>
+          <span className="w-2 h-2 bg-blue-500 rounded-full me-5"></span>
           <span>Title Verification</span>
         </li>
       </ul>

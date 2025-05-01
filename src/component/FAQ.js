@@ -10,7 +10,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
         className="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
       >
         <h3 className="text-xl font-semibold text-gray-900">{question}</h3>
-        <span className="text-red-600 text-2xl">
+        <span className="text-blue-600 text-2xl">
           {isOpen ? '−' : '+'}
         </span>
       </button>
