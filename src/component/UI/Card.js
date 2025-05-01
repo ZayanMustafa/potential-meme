@@ -12,7 +12,7 @@ const PackageCard = ({ vehicleType, price, discount, features }) => {
     <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
       {/* Vertical Discount Ribbon */}
       {discount > 0 && (
-        <div className="absolute top-0 left-0 h-full w-8 flex items-center justify-center bg-red-500">
+        <div className="absolute top-0 left-0 h-full w-8 flex items-center justify-center bg-blue-500">
           <div className="text-white font-bold text-lg transform -rotate-90 whitespace-nowrap">
             {discount}% OFF
           </div>
