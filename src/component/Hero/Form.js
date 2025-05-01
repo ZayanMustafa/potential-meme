@@ -26,20 +26,20 @@ const FormSection = () => {
 
     try {
       // Save to database
-      const response = await fetch('/api/save-report', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // const response = await fetch('/api/save-report', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
 
-      if (!response.ok) throw new Error('Failed to save data');
+      // if (!response.ok) throw new Error('Failed to save data');
 
       // Redirect to package page
       router.push('/package');
     } catch (error) {
-      console.error('Submission error:', error);
+      // console.error('Submission error:', error);
       // Still redirect even if saving fails (per your requirement)
       router.push('/package');
     } finally {
