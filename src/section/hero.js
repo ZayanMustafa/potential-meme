@@ -1,14 +1,11 @@
 // components/Hero.js
 'use client';
+import { useState } from 'react';
 import FormSection from '@/component/Hero/Form';
 import ImageSlider from '@/component/Hero/ImageSlider';
 import InfoSection from '@/component/Hero/InfoSection';
 import TypeWriter from '@/component/Hero/TypeWritter';
-import { useState } from 'react';
-// import FormSection from './FormSection';
-// import InfoSection from './InfoSection';
-// import ImageSlider from './ImageSlider';
-// import TypeWriter from './TypeWriter';
+
 
 const HeroSection = () => {
   const vehicleTypes = ['Car', 'Bike', 'Truck', 'Ship'];
