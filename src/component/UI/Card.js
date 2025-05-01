@@ -1,12 +1,21 @@
-// components/PackageCard.js
 'use client';
 import { useState } from 'react';
-import { FaCar, FaShip, FaCheck } from 'react-icons/fa';
+import { FaCar, FaShip, FaMotorcycle, FaTruck, FaCheck } from 'react-icons/fa';
+import { RiEBikeFill } from 'react-icons/ri';
 import PaymentModal from '../PaymentModal';
+
+// Icon mapping for different vehicle types
+const vehicleIcons = {
+  Bike: RiEBikeFill,
+  Car: FaCar,
+  Truck: FaTruck,
+  Ship: FaShip
+};
 
 const PackageCard = ({ vehicleType, price, discount, features }) => {
   const [showModal, setShowModal] = useState(false);
   const discountedPrice = price * (1 - discount / 100);
+  const IconComponent = vehicleIcons[vehicleType] || FaCar;
   
   return (
     <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
@@ -21,12 +30,8 @@ const PackageCard = ({ vehicleType, price, discount, features }) => {
       
       <div className={`p-8 flex-1 flex flex-col ${discount > 0 ? 'pl-12' : ''}`}>
         {/* Vehicle Icon */}
-        <div className="mb-6 p-4 rounded-full w-20 h-20 flex items-center justify-center bg-blue-100">
-          {vehicleType === 'Ship' ? (
-            <FaShip className="w-10 h-10 text-red-600" />
-          ) : (
-            <FaCar className="w-10 h-10 text-red-600" />
-          )}
+        <div className="mb-6 p-4 rounded-full w-20 h-20 flex items-center justify-center bg-blue-50">
+          <IconComponent className="w-10 h-10 text-blue-600" />
         </div>
         
         {/* Title */}
