@@ -23,33 +23,32 @@ const FormSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+  
     try {
       // Save to database
-      const response = await fetch('https://fusionbackend-nine.vercel.app/vin', {
+      const response = await fetch('http://localhost:5000/vin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
-
-
+  
       const data = await response.json();
       console.log('Response from server:', data);
-      // if (!response.ok) throw new Error('Failed to save data');
-
-      // Redirect to package page
-      router.push('/package');
-    
-    } catch (error) {
       
-      // console.error('Submission error:', error);
-      // Still redirect even if saving fails (per your requirement)
+      if (!data.success) {
+        alert(data.message);
+        return; // This will stop execution here if success is false
+      }
+      
+      // Only reach this point if success is true
       router.push('/package');
-
-
+      
+    } catch (error) {
+      console.error('Submission error:', error);
+      // You might want to show an error message here too
+      alert('An error occurred while submitting the form');
     } finally {
       setIsSubmitting(false);
     }
