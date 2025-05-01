@@ -2,7 +2,6 @@
 'use client';
 import { footerData } from '@/constant/Footer.const';
 import Image from 'next/image';
-// import { footerData } from '../constants/footerData';
 import Link from 'next/link';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';

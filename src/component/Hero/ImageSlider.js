@@ -7,7 +7,7 @@ const ImageSlider = ({ images, currentSlide, setCurrentSlide }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 5000); // Increased to 5 seconds to allow typing animation to complete
+    }, 5000); //  5 seconds 
     return () => clearInterval(interval);
   }, [images.length, setCurrentSlide]);
 
