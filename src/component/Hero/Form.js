@@ -20,12 +20,30 @@ const FormSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
   
     try {
-      // Save to database
       const response = await fetch('https://fussionreportbackend.vercel.app/vin', {
         method: 'POST',
         headers: {
@@ -34,25 +52,37 @@ const FormSection = () => {
         body: JSON.stringify(formData),
       });
   
+      // First check if the response is OK (status 200-299)
+      // if (!response.ok) {
+      //   const errorData = await response.json().catch(() => ({}));
+      //   throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      // }
+  
       const data = await response.json();
       console.log('Response from server:', data);
       
-      if (!data.success) {
-        alert(data.message);
-        return; // This will stop execution here if success is false
-      }
+      // if (!data.success) {
+      //   alert(data.message || 'Failed to save data');
+      //   return;
+      // }
       
-      // Only reach this point if success is true
+      // Successful submission - redirect without alert
       router.push('/package');
       
     } catch (error) {
       console.error('Submission error:', error);
-      // You might want to show an error message here too
-      alert('An error occurred while submitting the form');
+      alert(error.message || 'An error occurred while submitting the form');
     } finally {
       setIsSubmitting(false);
     }
   };
+
+
+
+
+
+
+
 
   return (
     <div className="flex justify-end ms-auto me-2">
