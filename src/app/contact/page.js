@@ -135,7 +135,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Our Office</h3>
-                  <p className="text-gray-600">123 Business Ave, Suite 456<br />Riyadh, Saudi Arabia</p>
+                  <p className="text-gray-600">123 Business Ave, Suite 456<br />Karachi, Pakistan</p>
                 </div>
               </div>
 
@@ -145,7 +145,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Phone Number</h3>
-                  <p className="text-gray-600">+966 12 345 6789</p>
+                  <p className="text-gray-600">+92 311 2512821</p>
                 </div>
               </div>
 

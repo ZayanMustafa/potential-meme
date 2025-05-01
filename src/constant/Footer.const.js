@@ -33,7 +33,7 @@ export const footerData = {
     ],
     contact: {
       address: '123 Vehicle Lane, Auto City, 10001',
-      phone: '+1 (555) 123-4567',
+      phone: '+92 (311) 2512821',
       email: 'support@vehiclehistory.com',
     },
     social: [

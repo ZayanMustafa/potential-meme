@@ -14,7 +14,7 @@ const TypeWriter = ({ words, currentIndex }) => {
 
   useEffect(() => {
     const typeSpeed = isDeleting ? 50 : 100;
-    const pauseBetween = 2000; // Reduced pause for better sync with images
+    const pauseBetween = 5000; // Reduced pause for better sync with images
     
     const type = () => {
       const fullText = words[currentIndex];
