@@ -36,14 +36,14 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-gray-50 overflow-hidden h-[600px] min-h-[1000px]">
+    <section className="relative bg-gray-50  h-[700px] min-h-[1200px]">
       <ImageSlider
         images={images}
         currentSlide={currentSlide}
         setCurrentSlide={setCurrentSlide}
       />
 
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-2 h-full flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <InfoSection
