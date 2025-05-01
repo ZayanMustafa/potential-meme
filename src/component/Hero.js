@@ -100,6 +100,7 @@ const Hero = () => {
             <Image
               src={image.src} 
               width={1920}
+              height={1080}
               alt={image.alt} 
               className="w-full h-full object-cover"
             />
