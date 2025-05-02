@@ -45,7 +45,7 @@ const ContactPage = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
-      <div className="text-center mb-12">
+      <div className="text-center mt-15 mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Have questions? Get in touch with our team for assistance.
