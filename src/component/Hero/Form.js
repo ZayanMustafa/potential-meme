@@ -1,7 +1,6 @@
 // components/FormSection.js
 'use client';
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import InputField from "../UI/Input";
 
@@ -15,47 +14,38 @@ const FormSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    const savedData = localStorage.getItem('formData');
+    if (savedData) {
+      setFormData(JSON.parse(savedData));
+    }
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => {
+      const newData = { ...prev, [name]: value };
+      // Save to localStorage on each change
+      localStorage.setItem('formData', JSON.stringify(newData));
+      return newData;
+    });
   };
-
-
-
-
-
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
     try {
-      const response = await fetch('https://fussionreportbackend.vercel.app/vin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-  
-      const data = await response.json();
-      console.log('Response from server:', data);
-      
-  
+      // Simulate processing delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Form data saved locally:', formData);
       router.push('/package');
-      
     } catch (error) {
-      console.error('Submission error:', error);
-      alert(error.message || 'An error occurred while submitting the form');
+      console.error('Error:', error);
+      alert('An error occurred while processing the form');
     } finally {
       setIsSubmitting(false);
     }
   };
-
-
-
 
   return (
     <div className="flex justify-end ms-auto me-2">
@@ -94,7 +84,6 @@ const FormSection = () => {
               inputSize="lg"
               required
             />
-
             <InputField
               label="Year"
               id="year"

@@ -1,4 +1,4 @@
-// components/ui/InputField.js
+// File : src/app/components/ui/InputField.js
 const InputField = ({ label, id, name, type = 'text', value, onChange, required = true }) => {
     return (
       <div>

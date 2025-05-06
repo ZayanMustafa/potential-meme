@@ -1,6 +1,6 @@
 // constants/footerData.js
 export const footerData = {
-    logo: '/logo.png', 
+    logo: '/fusion.png', 
     description: 'Get comprehensive vehicle history reports for cars, bikes, trucks, and ships. Know your vehicle inside out.',
     links: [
       {
