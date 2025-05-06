@@ -78,7 +78,7 @@ const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => 
           className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
         >
          <FaArrowLeft/>
-          Back to form
+            Back to form
         </button>
       </div>
     </div>
