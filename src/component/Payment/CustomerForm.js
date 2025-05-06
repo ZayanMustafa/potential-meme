@@ -34,7 +34,7 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) =
     }
   
     try {
-      const response = await fetch('http://localhost:5000/order', {
+      const response = await fetch('https://fussionreportbackend.vercel.app/order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

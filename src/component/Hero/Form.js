@@ -27,18 +27,6 @@ const FormSection = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -65,10 +53,6 @@ const FormSection = () => {
       setIsSubmitting(false);
     }
   };
-
-
-
-
 
 
 

@@ -1,14 +1,13 @@
 'use client'
 import { useState } from 'react';
-import StripePayment from './StripPayment';
 import PayPalPayment from './PaypalPayment';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => {
-  const [paymentMethod, setPaymentMethod] = useState('creditcard');
+  const [paymentMethod, setPaymentMethod] = useState('paypal'); // Default to PayPal
 
   const handlePaymentSuccess = async (paymentData) => {
     try {
-      // Combine all data to send to your API
       const orderData = {
         ...customerInfo,
         vehicleType,
@@ -17,7 +16,6 @@ const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => 
         paymentData
       };
 
-      // Send to your backend API
       const response = await fetch('/api/save-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -39,32 +37,31 @@ const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => 
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h4 className="font-medium mb-2">Payment Method</h4>
-        <div className="flex space-x-2 mb-4">
-          <button
-            onClick={() => setPaymentMethod('creditcard')}
-            className={`px-4 py-2 border rounded-md ${paymentMethod === 'creditcard' ? 'border-blue-500 bg-blue-50' : 'border-gray-300'}`}
-          >
-            Credit Card
-          </button>
+    <div className="space-y-6 p-6 bg-white rounded-lg shadow-md">
+      <div className="text-center mb-6">
+        <h3 className="text-xl font-semibold text-gray-800">Complete Your Payment</h3>
+        <p className="text-gray-600 mt-1">Total Amount: ${price}</p>
+      </div>
+
+      {/* Payment method selector - only showing PayPal option */}
+      <div className="mb-6">
+        <h4 className="font-medium text-gray-700 mb-3">Select Payment Method</h4>
+        <div className="flex justify-center">
           <button
             onClick={() => setPaymentMethod('paypal')}
-            className={`px-4 py-2 border rounded-md ${paymentMethod === 'paypal' ? 'border-blue-500 bg-blue-50' : 'border-gray-300'}`}
+            className={`px-6 py-3 border-2 rounded-lg flex items-center justify-center space-x-2 transition-all 
+              ${paymentMethod === 'paypal' ? 
+                'border-blue-500 bg-blue-50 text-blue-600' : 
+                'border-gray-300 hover:border-blue-300'}`}
           >
-            PayPal
+            <span className="font-medium">PayPal</span>
           </button>
         </div>
-        
-        {paymentMethod === 'creditcard' ? (
-          <StripePayment 
-            price={price}
-            vehicleType={vehicleType}
-            onSuccess={handlePaymentSuccess}
-            onClose={onClose}
-          />
-        ) : (
+      </div>
+
+      {/* PayPal payment component - renders automatically */}
+      <div className="mt-8">
+        {paymentMethod === 'paypal' && (
           <PayPalPayment 
             price={price}
             customerInfo={customerInfo}
@@ -75,12 +72,15 @@ const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => 
         )}
       </div>
       
-      <button
-        onClick={() => setStep('form')}
-        className="text-blue-600 hover:text-blue-800 text-sm"
-      >
-        ← Back to form
-      </button>
+      <div className="pt-4 border-t border-gray-200">
+        <button
+          onClick={() => setStep('form')}
+          className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+        >
+         <FaArrowLeft/>
+          Back to form
+        </button>
+      </div>
     </div>
   );
 };
