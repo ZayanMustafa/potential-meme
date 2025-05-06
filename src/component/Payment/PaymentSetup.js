@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import StripePayment from './StripPayment';
 import PayPalPayment from './PaypalPayment';

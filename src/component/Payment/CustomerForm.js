@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import { FaCheckCircle, FaExclamationTriangle, FaSpinner } from 'react-icons/fa';
 import InputField from "../UI/Input";

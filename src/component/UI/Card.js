@@ -1,10 +1,11 @@
+// File : src/compoent/UI/Card.js
+
 'use client';
 import { useState } from 'react';
 import { FaCar, FaShip, FaMotorcycle, FaTruck, FaCheck } from 'react-icons/fa';
 import { RiEBikeFill } from 'react-icons/ri';
-import PaymentModal from '../PaymentModal';
+import PaymentModal from '../Payment/PaymentModal';
 
-// Icon mapping for different vehicle types
 const vehicleIcons = {
   Bike: RiEBikeFill,
   Car: FaCar,
@@ -66,7 +67,7 @@ const PackageCard = ({ vehicleType, price, discount, features }) => {
       </div>
       
       {/* Payment Modal */}
-      <PaymentModal 
+      <PaymentModal
         show={showModal}
         onClose={() => setShowModal(false)}
         vehicleType={vehicleType}

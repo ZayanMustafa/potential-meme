@@ -2,7 +2,9 @@
 'use client';
 
 import { useState } from 'react';
-import PackageCard from "@/component/UI/Card";
+
+import PackageCard from '@/component/UI/Card';
+// import PackageCard from "@/component/UI/Card";
 import { packages } from "@/constant/Packages";
 import PaymentModal from "@/component/Payment/PaymentModal";
 

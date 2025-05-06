@@ -1,3 +1,5 @@
+//  File : component/Payment/PaymentModal.js
+
 'use client';
 import { useState } from 'react';
 import CustomerForm from './CustomerForm';
