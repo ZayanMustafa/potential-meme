@@ -10,11 +10,11 @@ export const OrderTable = ({ orders }) => {
   // Column width configuration
   const columnWidths = {
     name: '1fr',
-    email: '1.5fr',  // Increased width
+    email: '1.5fr',  
     phone: '1fr',
-    vin: '1.5fr',    // Increased width
+    vin: '1.5fr',    
     model: '1fr',
-    year: '0.8fr'    // Decreased width
+    year: '0.8fr'    
   };
 
   const handleMouseMove = (e) => {
