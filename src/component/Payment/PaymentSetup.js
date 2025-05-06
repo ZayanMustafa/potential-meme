@@ -4,8 +4,7 @@ import PayPalPayment from './PaypalPayment';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => {
-  const [paymentMethod, setPaymentMethod] = useState('paypal'); // Default to PayPal
-
+  const [paymentMethod, setPaymentMethod] = useState('paypal'); 
   const handlePaymentSuccess = async (paymentData) => {
     try {
       const orderData = {
@@ -43,7 +42,7 @@ const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => 
         <p className="text-gray-600 mt-1">Total Amount: ${price}</p>
       </div>
 
-      {/* Payment method selector - only showing PayPal option */}
+      {/* Payment method selector*/}
       <div className="mb-6">
         <h4 className="font-medium text-gray-700 mb-3">Select Payment Method</h4>
         <div className="flex justify-center">
@@ -54,12 +53,12 @@ const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => 
                 'border-blue-500 bg-blue-50 text-blue-600' : 
                 'border-gray-300 hover:border-blue-300'}`}
           >
-            <span className="font-medium">PayPal</span>
+            <span className="font-medium">Payment</span>
           </button>
         </div>
       </div>
 
-      {/* PayPal payment component - renders automatically */}
+      {/* PayPal payment component */}
       <div className="mt-8">
         {paymentMethod === 'paypal' && (
           <PayPalPayment 
