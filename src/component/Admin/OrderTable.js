@@ -106,7 +106,7 @@ export const OrderTable = ({ orders }) => {
           {/* Name Column */}
           <div className="truncate flex items-center justify-between">
             <span>{order.name}</span>
-            {/* <ClipboardIcon id={`name-${order._id}`} textToCopy={order.name} /> */}
+           
           </div>
           
           {/* Email Column */}
@@ -114,7 +114,7 @@ export const OrderTable = ({ orders }) => {
             <a href={`mailto:${order.email}`} className="text-indigo-500 hover:underline">
               {order.email}
             </a>
-            {/* <ClipboardIcon id={`email-${order._id}`} textToCopy={order.email} /> */}
+           
           </div>
           
           {/* Phone Column */}
@@ -122,25 +122,25 @@ export const OrderTable = ({ orders }) => {
             <a href={`tel:${order.phone}`} className="text-indigo-500 hover:underline">
               {order.phone}
             </a>
-            {/* <ClipboardIcon id={`phone-${order._id}`} textToCopy={order.phone} /> */}
+           
           </div>
           
           {/* VIN Column */}
           <div className="truncate font-mono flex items-center justify-between">
             <span>{order.vin}</span>
-            {/* <ClipboardIcon id={`vin-${order._id}`} textToCopy={order.vin} /> */}
+            
           </div>
           
           {/* Model Column */}
           <div className="truncate flex items-center justify-between">
             <span>{order.model}</span>
-            {/* <ClipboardIcon id={`model-${order._id}`} textToCopy={order.model} /> */}
+            
           </div>
           
           {/* Year Column */}
           <div className="flex items-center justify-between">
             <span>{order.year}</span>
-            {/* <ClipboardIcon id={`year-${order._id}`} textToCopy={order.year} /> */}
+            
           </div>
         </div>
       ))}
