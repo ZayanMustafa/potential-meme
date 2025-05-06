@@ -109,7 +109,7 @@ const PayPalPayment = ({ price, customerInfo, vehicleType, onSuccess, onClose })
             />
             
             <div className="mt-4 text-center text-sm text-gray-500">
-              You'll be redirected to PayPal to complete your payment securely.
+              You&apros;ll be redirected to PayPal to complete your payment securely.
             </div>
           </>
         )}
