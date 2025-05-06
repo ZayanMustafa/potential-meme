@@ -52,21 +52,10 @@ const FormSection = () => {
         body: JSON.stringify(formData),
       });
   
-      // First check if the response is OK (status 200-299)
-      // if (!response.ok) {
-      //   const errorData = await response.json().catch(() => ({}));
-      //   throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
-      // }
-  
       const data = await response.json();
       console.log('Response from server:', data);
       
-      // if (!data.success) {
-      //   alert(data.message || 'Failed to save data');
-      //   return;
-      // }
-      
-      // Successful submission - redirect without alert
+  
       router.push('/package');
       
     } catch (error) {
