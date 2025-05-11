@@ -1,9 +1,11 @@
+// File : src/component/Payment/CustomerForm.js
+
 'use client'
 import { useState } from 'react';
 import { FaCheckCircle, FaExclamationTriangle, FaSpinner } from 'react-icons/fa';
 import InputField from "../UI/Input";
 
-const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) => {
+const CustomerForm = ({ customerInfo, setCustomerInfo, setStep }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({
     success: false,
@@ -15,76 +17,128 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) =
     setCustomerInfo(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ success: false, message: '' });
-  
-    // Basic validation
-    const requiredFields = ['name', 'email', 'phone', 'vin', 'model', 'year'];
-    const missingFields = requiredFields.filter(field => !customerInfo[field]);
-  
+  const validateForm = () => {
+    const requiredFields = ['name', 'email', 'phoneNumber', 'vinNumber', 'vehicleModel', 'year'];
+    const missingFields = requiredFields.filter(field => !customerInfo[field]?.trim());
+    
     if (missingFields.length > 0) {
       setSubmitStatus({
         success: false,
-        message: `Please fill in all required fields: ${missingFields.join(', ')}`
+        message: `Missing required fields: ${missingFields.join(', ')}`
       });
-      setIsSubmitting(false);
-      return;
+      return false;
     }
-  
-    try {
-      const response = await fetch('https://fussionreportbackend.vercel.app/order', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: customerInfo.name,
-          email: customerInfo.email,
-          phone: customerInfo.phone,
-          vin: customerInfo.vin,
-          model: customerInfo.model,
-          year: customerInfo.year
-        })
-      });
-  
-      // First check if the response is OK (status 200-299)
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-  
-      // Then try to parse the JSON
-      let data;
-      try {
-        data = await response.json();
-      } catch (jsonError) {
-        throw new Error('Invalid JSON response from server');
-      }
-  
-      if (data && data.success) {
-        setSubmitStatus({
-          success: true,
-          message: 'Your data is submitted successfully! Redirecting to payment...'
-        });
-        setTimeout(() => setStep('payment'), 2000);
-      } else {
-        setSubmitStatus({
-          success: false,
-          message: data?.message || 'Order placement failed. Please try again.'
-        });
-      }
-    } catch (error) {
-      console.error('Submission error:', error);
+
+    if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(customerInfo.email)) {
       setSubmitStatus({
         success: false,
-        message: error.message || 'Failed to submit order. Please try again later.'
+        message: 'Please enter a valid email address'
       });
-    } finally {
-      setIsSubmitting(false);
+      return false;
     }
+
+    return true;
   };
-  
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!validateForm()) return;
+  //   setIsSubmitting(true);
+    
+  //   try {
+  //     const response = await fetch('http://localhost:5000/orders', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         name: customerInfo.name,
+  //         email: customerInfo.email,
+  //         phoneNumber: customerInfo.phoneNumber,
+  //         vinNumber: customerInfo.vinNumber,
+  //         vehicleModel: customerInfo.vehicleModel,
+  //         year: customerInfo.year.toString() 
+  //       })
+  //     });
+
+  //     const data = await response.json();
+
+  //     if (!response.ok) {
+  //       throw new Error(data.message || 'Order submission failed');
+  //     }
+
+  //     // Handle success case
+  //     localStorage.setItem('orderId', data.order._id);
+  //     localStorage.setItem('orderData', JSON.stringify(data.order));
+      
+  //     setSubmitStatus({
+  //       success: true,
+  //       message: 'Order submitted successfully! Redirecting...'
+  //     });
+      
+  //     setTimeout(() => setStep('payment'), 2000);
+
+  //   } catch (error) {
+  //     setSubmitStatus({
+  //       success: false,
+  //       message: error.message || 'Failed to submit order'
+  //     });
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
+
+  // In the handleSubmit function of CustomerForm.js
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+    setIsSubmitting(true);
+    
+    try {
+        const response = await fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: customerInfo.name,
+                email: customerInfo.email,
+                phoneNumber: customerInfo.phoneNumber,
+                vinNumber: customerInfo.vinNumber,
+                vehicleModel: customerInfo.vehicleModel,
+                year: customerInfo.year.toString()
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || 'Order submission failed');
+        }
+
+        // Updated to match the backend response structure
+        localStorage.setItem('orderId', data.order._id);
+        localStorage.setItem('orderData', JSON.stringify(data.order));
+        
+        setSubmitStatus({
+            success: true,
+            message: 'Order submitted successfully! Redirecting...'
+        });
+        
+        setTimeout(() => setStep('payment'), 2000);
+
+    } catch (error) {
+        setSubmitStatus({
+            success: false,
+            message: error.message || 'Failed to submit order'
+        });
+    } finally {
+        setIsSubmitting(false);
+    }
+};
+
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {submitStatus.message && (
@@ -104,7 +158,6 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) =
 
       <InputField
         label="Full Name"
-        id="name"
         name="name"
         value={customerInfo.name}
         onChange={handleInputChange}
@@ -113,7 +166,6 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) =
       
       <InputField
         label="Email Address"
-        id="email"
         name="email"
         type="email"
         value={customerInfo.email}
@@ -123,19 +175,17 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) =
       
       <InputField
         label="Phone Number"
-        id="phone"
-        name="phone"
+        name="phoneNumber"
         type="tel"
-        value={customerInfo.phone}
+        value={customerInfo.phoneNumber}
         onChange={handleInputChange}
         required
       />
       
       <InputField
         label="VIN Number"
-        id="vin"
-        name="vin"
-        value={customerInfo.vin}
+        name="vinNumber"
+        value={customerInfo.vinNumber}
         onChange={handleInputChange}
         required
       />
@@ -143,16 +193,14 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) =
       <div className="grid grid-cols-2 gap-4">
         <InputField
           label="Vehicle Model"
-          id="model"
-          name="model"
-          value={customerInfo.model}
+          name="vehicleModel"
+          value={customerInfo.vehicleModel}
           onChange={handleInputChange}
           required
         />
         
         <InputField
           label="Year"
-          id="year"
           name="year"
           type="number"
           min="1900"
@@ -166,7 +214,7 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) =
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`w-full py-3 text-white rounded-md transition-colors flex justify-center items-center
+        className={`w-full py-3 px-4 text-white rounded-md transition-colors flex justify-center items-center
           ${isSubmitting 
             ? 'bg-blue-400 cursor-not-allowed' 
             : 'bg-blue-600 hover:bg-blue-700'}`}
@@ -185,3 +233,4 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep, vehicleType }) =
 };
 
 export default CustomerForm;
+

@@ -7,7 +7,7 @@ const API_BASE_URL = 'https://fussionreportbackend.vercel.app';
 
 export const fetchOrders = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/order/admin`);
+    const response = await axios.get(`${API_BASE_URL}/orders/admin`);
     return response.data.orders; // Assuming your API returns { success: true, orders: [...] }
   } catch (error) {
     console.error('Error fetching orders:', error);

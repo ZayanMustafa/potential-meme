@@ -8,13 +8,13 @@ import PaymentStep from './PaymentSetup';
 const PaymentModal = ({ show, onClose, vehicleType, price }) => {
   const [step, setStep] = useState('form');
   const [customerInfo, setCustomerInfo] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    vin: '',
-    model: '',
-    year: ''
-  });
+  name: '',
+  email: '',
+  phoneNumber: '',
+  vinNumber: '',
+  vehicleModel: '',
+  year: ''
+});
 
   if (!show) return null;
 
