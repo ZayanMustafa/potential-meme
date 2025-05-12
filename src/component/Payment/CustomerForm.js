@@ -46,107 +46,56 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep }) => {
     return true;
   };
 
-  //   e.preventDefault();
-  //   if (!validateForm()) return;
-  //   setIsSubmitting(true);
-    
-  //   try {
-  //     const response = await fetch('http://localhost:5000/orders', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         name: customerInfo.name,
-  //         email: customerInfo.email,
-  //         phoneNumber: customerInfo.phoneNumber,
-  //         vinNumber: customerInfo.vinNumber,
-  //         vehicleModel: customerInfo.vehicleModel,
-  //         year: customerInfo.year.toString() 
-  //       })
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (!response.ok) {
-  //       throw new Error(data.message || 'Order submission failed');
-  //     }
-
-  //     // Handle success case
-  //     localStorage.setItem('orderId', data.order._id);
-  //     localStorage.setItem('orderData', JSON.stringify(data.order));
-      
-  //     setSubmitStatus({
-  //       success: true,
-  //       message: 'Order submitted successfully! Redirecting...'
-  //     });
-      
-  //     setTimeout(() => setStep('payment'), 2000);
-
-  //   } catch (error) {
-  //     setSubmitStatus({
-  //       success: false,
-  //       message: error.message || 'Failed to submit order'
-  //     });
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
-
-
-  // In the handleSubmit function of CustomerForm.js
+// In handleSubmit function of CustomerForm.js
 const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-    setIsSubmitting(true);
-    
-    try {
-        const response = await fetch('http://localhost:5000/orders', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: customerInfo.name,
-                email: customerInfo.email,
-                phoneNumber: customerInfo.phoneNumber,
-                vinNumber: customerInfo.vinNumber,
-                vehicleModel: customerInfo.vehicleModel,
-                year: customerInfo.year.toString()
-            })
-        });
+  e.preventDefault();
+  if (!validateForm()) return;
+  setIsSubmitting(true);
+  
+  try {
+    const response = await fetch('http://localhost:5000/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: customerInfo.name,
+        email: customerInfo.email,
+        phoneNumber: customerInfo.phoneNumber,
+        vinNumber: customerInfo.vinNumber,
+        vehicleModel: customerInfo.vehicleModel,
+        year: customerInfo.year.toString()
+      })
+    });
 
-        const data = await response.json();
+    const data = await response.json();
 
-        console.log(data)
-
-        if (!response.ok || !data.success) {
-            throw new Error(data.message || 'Order submission failed');
-        }
-
-        // Updated to match the backend response structure
-        localStorage.setItem('orderId', data.order._id);
-        localStorage.setItem('orderData', JSON.stringify(data.order));
-        
-        setSubmitStatus({
-            success: true,
-            message: 'Order submitted successfully! Redirecting...'
-        });
-        
-
-        router.push("/paymentsuccess")
-
-        // setTimeout(() => setStep('payment'), 2000);
-
-    } catch (error) {
-        setSubmitStatus({
-            success: false,
-            message: error.message || 'Failed to submit order'
-        });
-    } finally {
-        setIsSubmitting(false);
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || 'Order submission failed');
     }
+
+    localStorage.setItem('orderId', data.order._id);
+    localStorage.setItem('orderData', JSON.stringify(data.order));
+    
+    setSubmitStatus({
+      success: true,
+      message: 'Order submitted successfully!'
+    });
+
+    // Only proceed to payment step on success
+    setStep('payment');
+
+  } catch (error) {
+    setSubmitStatus({
+      success: false,
+      message: error.message || 'Failed to submit order'
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
 };
+
+
 
 
   return (

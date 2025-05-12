@@ -5,35 +5,40 @@ import { FaArrowLeft } from 'react-icons/fa';
 
 const PaymentStep = ({ customerInfo, price, vehicleType, onClose, setStep }) => {
   const [paymentMethod, setPaymentMethod] = useState('paypal'); 
-  const handlePaymentSuccess = async (paymentData) => {
-    try {
-      const orderData = {
-        ...customerInfo,
-        vehicleType,
-        price,
-        paymentMethod,
-        paymentData
-      };
+  
+  // In PaymentStep component
+const handlePaymentSuccess = async (paymentData) => {
+  try {
+    const orderData = {
+      ...customerInfo,
+      vehicleType,
+      price,
+      paymentMethod,
+      paymentData
+    };
 
-      const response = await fetch('/api/save-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderData)
-      });
+    const response = await fetch('/api/save-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    });
 
-      const result = await response.json();
-      
-      if (result.success) {
-        alert('Payment successful! Your report will be generated shortly.');
-        onClose();
-      } else {
-        throw new Error(result.error || 'Payment failed');
-      }
-    } catch (error) {
-      console.error('Payment processing error:', error);
-      alert(`Payment failed: ${error.message}`);
+    const result = await response.json();
+    
+    if (result.success) {
+      // Redirect to payment success page with transaction details
+      window.location.href = `/paymentsuccess`;
+    } else {
+      throw new Error(result.error || 'Payment failed');
     }
-  };
+  } catch (error) {
+    console.error('Payment processing error:', error);
+    alert(`Payment failed: ${error.message}`);
+  }
+};
+
+
+
 
   return (
     <div className="space-y-6 p-6 bg-white rounded-lg shadow-md">
