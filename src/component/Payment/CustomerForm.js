@@ -1,11 +1,17 @@
+
+
 // File : src/component/Payment/CustomerForm.js
 
 'use client'
 import { useState } from 'react';
 import { FaCheckCircle, FaExclamationTriangle, FaSpinner } from 'react-icons/fa';
 import InputField from "../UI/Input";
+import { useRouter } from 'next/navigation';
+
+
 
 const CustomerForm = ({ customerInfo, setCustomerInfo, setStep }) => {
+  const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({
     success: false,
@@ -40,7 +46,6 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep }) => {
     return true;
   };
 
-  // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   if (!validateForm()) return;
   //   setIsSubmitting(true);
@@ -113,6 +118,8 @@ const handleSubmit = async (e) => {
 
         const data = await response.json();
 
+        console.log(data)
+
         if (!response.ok || !data.success) {
             throw new Error(data.message || 'Order submission failed');
         }
@@ -126,7 +133,10 @@ const handleSubmit = async (e) => {
             message: 'Order submitted successfully! Redirecting...'
         });
         
-        setTimeout(() => setStep('payment'), 2000);
+
+        router.push("/paymentsuccess")
+
+        // setTimeout(() => setStep('payment'), 2000);
 
     } catch (error) {
         setSubmitStatus({

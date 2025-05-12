@@ -6,7 +6,7 @@ import TrustedWorldwide from "@/section/Trusted";
 export default function Home() {
   return (
       <>
-        < HeroSection/>
+        <HeroSection/>
         <TrustedWorldwide/>
         <Testimonials/>
         <Footer/> 

@@ -43,6 +43,8 @@ const PayPalPayment = ({ price, customerInfo, vehicleType, onSuccess, onClose })
         amount: price,
         vehicleType,
         customerInfo
+
+        
       });
       
       setPaid(true);
