@@ -1,7 +1,7 @@
 // components/AboutPage.js
 'use client';
 import FAQItem from '@/component/FAQ';
-import { ABOUT_CONTENT, COUNTRIES, FAQS } from '@/constant/About.const';
+import { ABOUT_CONTENT, MISSION_VISION, HISTORY, COUNTRIES, FAQS } from '@/constant/About.const';
 import { useState } from 'react';
 
 const AboutPage = () => {
@@ -19,7 +19,40 @@ const AboutPage = () => {
                 <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">{ABOUT_CONTENT.description}</p>
             </div>
 
-            {/* Stats */}
+            {/* Mission Section */}
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm sm:shadow-md border border-gray-200 mb-12 sm:mb-16">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">{MISSION_VISION.mission.title}</h2>
+                {MISSION_VISION.mission.content.map((paragraph, index) => (
+                    <p key={index} className="text-base sm:text-lg text-gray-700 mb-4 last:mb-0">
+                        {paragraph}
+                    </p>
+                ))}
+            </div>
+
+            {/* Vision Section */}
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm sm:shadow-md border border-gray-200 mb-12 sm:mb-16">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">{MISSION_VISION.vision.title}</h2>
+                {MISSION_VISION.vision.content.map((paragraph, index) => (
+                    <p key={index} className="text-base sm:text-lg text-gray-700 mb-4 last:mb-0">
+                        {paragraph}
+                    </p>
+                ))}
+            </div>
+
+            {/* History Section */}
+            <div className="mb-12 sm:mb-16">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">Our History</h2>
+                <div className="space-y-6 sm:space-y-8">
+                    {HISTORY.map((item, index) => (
+                        <div key={index} className="bg-white p-6 sm:p-8 rounded-xl shadow-sm sm:shadow-md border border-gray-200">
+                            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">{item.year}</h3>
+                            <p className="text-base sm:text-lg text-gray-700">{item.content}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Stats Section */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
                 {ABOUT_CONTENT.stats.map((stat, index) => (
                     <div key={index} className="bg-white p-4 sm:p-6 rounded-xl shadow-sm sm:shadow-md text-center border border-gray-200">

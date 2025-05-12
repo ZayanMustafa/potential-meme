@@ -1,7 +1,7 @@
 export const packages = [
     {
       vehicleType: 'Bike',
-      price: 35,
+      price: 34.99,
       discount: 15,
       features: [
         'Complete History Report',
@@ -14,7 +14,7 @@ export const packages = [
     },
     {
       vehicleType: 'Car',
-      price: 50,
+      price: 49.99,
       discount: 15,
       features: [
         'Comprehensive Vehicle History',
@@ -27,7 +27,7 @@ export const packages = [
     },
     {
       vehicleType: 'Truck',
-      price: 75,
+      price: 64.99,
       discount: 15,
       features: [
         'Commercial Use Verification',
@@ -39,8 +39,8 @@ export const packages = [
       ]
     },
     {
-      vehicleType: 'Ship',
-      price: 95,
+      vehicleType: 'Boat',
+      price: 99.99,
       discount: 25,
       features: [
         'Complete Marine History',

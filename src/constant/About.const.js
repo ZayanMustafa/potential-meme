@@ -1,4 +1,53 @@
 // constants/data.js
+export const ABOUT_CONTENT = {
+    title: "Empowering consumers with comprehensive vehicle history information since 2008",
+    description: "At Fusionscar, we're dedicated to making the used vehicle market transparent and safer for everyone.",
+    stats: [
+        { value: "10M+", label: "Reports Generated" },
+        { value: "50+", label: "Countries Covered" },
+        { value: "15+", label: "Years Experience" },
+        { value: "1M+", label: "Happy Customers" }
+    ]
+};
+
+export const MISSION_VISION = {
+    mission: {
+        title: "Our Mission",
+        content: [
+            "At Fusionscar, our mission is to make the used vehicle market more transparent and safer for everyone. We believe that every buyer deserves to know the complete history of a vehicle before making a purchase decision.",
+            "By providing comprehensive, accurate, and easy-to-understand vehicle history reports, we empower consumers to make informed choices and avoid potential problems."
+        ]
+    },
+    vision: {
+        title: "Our Vision",
+        content: [
+            "Our vision is to create a world where vehicle history is completely transparent, accessible, and understandable to everyone. We envision a future where every vehicle purchase is backed by comprehensive data, eliminating uncertainty and risk from the process.",
+            "By continuously expanding our global database and improving our reporting technology, we aim to be the most trusted source of vehicle history information worldwide."
+        ]
+    }
+};
+
+export const HISTORY = [
+    {
+        year: "2008: The Beginning",
+        content: "Fusionscar was founded by a group of automotive industry experts who recognized the need for greater transparency in the used vehicle market. After witnessing countless cases of consumers purchasing vehicles with hidden problems, they set out to create a solution that would provide comprehensive vehicle history information to buyers."
+    },
+    {
+        year: "2012: Global Expansion",
+        content: "After establishing a strong presence in the domestic market, Fusionscar began expanding internationally, forming partnerships with vehicle data providers around the world. This expansion allowed us to offer comprehensive vehicle history reports for vehicles from multiple countries, making us a truly global service."
+    },
+    {
+        year: "2018: Technological Innovation",
+        content: "In 2018, Fusionscar underwent a major technological transformation, implementing advanced data analytics and machine learning algorithms to improve the accuracy and comprehensiveness of our reports. This innovation allowed us to identify patterns and potential issues that might not be apparent from individual data points alone."
+    },
+    {
+        year: "Today: Industry Leader",
+        content: "Today, Fusionscar stands as an industry leader in vehicle history reporting, serving millions of customers worldwide. Our commitment to accuracy, comprehensiveness, and customer service has earned us the trust of consumers, dealers, and industry professionals alike. As we continue to grow and innovate, we remain dedicated to our original mission of making the used vehicle market more transparent and safer for everyone."
+    }
+];
+
+
+
 export const COUNTRIES = [
     {
       name: "Saudi Arabia",
@@ -55,15 +104,5 @@ export const COUNTRIES = [
     }
   ];
   
-  export const ABOUT_CONTENT = {
-    title: "About Our Vehicle Report Service",
-    description: "We provide official vehicle history reports across multiple countries with data sourced directly from government registries. Our mission is to bring transparency to vehicle transactions worldwide.",
-    stats: [
-      { value: "10M+", label: "Reports Generated" },
-      { value: "6", label: "Countries Covered" },
-      { value: "99.7%", label: "Accuracy Rate" },
-      { value: "24/7", label: "Customer Support" }
-    ]
-  };
 
   
