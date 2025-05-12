@@ -18,11 +18,11 @@ const InfoSection = ({ currentTypeIndex, currentText }) => {
       <div className="flex justify-start items-center mb-6">
         {getVehicleIcon()}
         <h1 className="text-6xl md:text-6xl font-bold ml-4">
-          FUSION
+          Asset  
         </h1>
       </div>
       <h2 className="text-4xl md:text-5xl font-semibold mb-8">
-        Vehicle History Reports
+        Central Report
       </h2>
       <p className="text-2xl mb-10">
         Instant reports for your{' '}
@@ -53,3 +53,5 @@ const InfoSection = ({ currentTypeIndex, currentText }) => {
 };
 
 export default InfoSection;
+
+

@@ -36,7 +36,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-14">
             <Link href="/" className="flex items-center">
               <FaCar className="h-7 w-7 text-blue-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">FUSION</span>
+              <span className="ml-2 text-xl font-bold text-gray-900">ASSEST</span>
             </Link>
 
             <div className="flex items-center space-x-6">

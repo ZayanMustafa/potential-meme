@@ -2,7 +2,7 @@
 
 'use client';
 import { useState } from 'react';
-import { FaCar, FaShip, FaMotorcycle, FaTruck, FaCheck } from 'react-icons/fa';
+import { FaCar, FaShip, FaTruck, FaCheck } from 'react-icons/fa';
 import { RiEBikeFill } from 'react-icons/ri';
 import PaymentModal from '../Payment/PaymentModal';
 

@@ -1,8 +1,8 @@
 export const packages = [
     {
       vehicleType: 'Bike',
-      price: 34.99,
-      discount: 15,
+      price: 49.99,  // Original price before 30% discount
+      discount: 30,
       features: [
         'Complete History Report',
         'Accident & Damage Records',
@@ -10,12 +10,13 @@ export const packages = [
         'Theft & Recovery Verification',
         '24/7 Customer Support',
         'Lifetime Updates'
-      ]
+      ],
+      finalPrice: 34.99  // Price after discount
     },
     {
       vehicleType: 'Car',
-      price: 49.99,
-      discount: 15,
+      price: 69.99,  // Original price before 30% discount
+      discount: 30,
       features: [
         'Comprehensive Vehicle History',
         'Accident & Damage Reports',
@@ -23,12 +24,13 @@ export const packages = [
         'Title & Ownership History',
         'Lien & Loan Information',
         'Recall & Warranty Data'
-      ]
+      ],
+      finalPrice: 49.99  // Price after discount
     },
     {
       vehicleType: 'Truck',
-      price: 64.99,
-      discount: 15,
+      price: 92.84,  // Original price before 30% discount
+      discount: 30,
       features: [
         'Commercial Use Verification',
         'Heavy-Duty Inspection Reports',
@@ -36,12 +38,13 @@ export const packages = [
         'DOT & Safety Compliance',
         'Fleet Maintenance History',
         'Commercial Accident Reports'
-      ]
+      ],
+      finalPrice: 64.99  // Price after discount
     },
     {
       vehicleType: 'Boat',
-      price: 99.99,
-      discount: 25,
+      price: 142.84,  // Original price before 30% discount
+      discount: 30,
       features: [
         'Complete Marine History',
         'Hull & Engine Inspection',
@@ -49,6 +52,8 @@ export const packages = [
         'Insurance & Loss History',
         'Coast Guard Documentation',
         'Marine Survey Records'
-      ]
+      ],
+      finalPrice: 99.99  // Price after discount
     }
-  ];
+];
+

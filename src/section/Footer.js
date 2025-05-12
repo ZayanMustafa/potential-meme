@@ -26,12 +26,12 @@ const Footer = () => {
                   src={footerData.logo} 
                   width={80}
                   height={80}
-                  alt="Vehicle History Report Logo" 
+                  alt="Asset Central Report Report Logo" 
                   className="h-16 w-auto object-contain" // Increased height to 16 (4rem)
                 />
               </div>
               <h2 className="text-2xl font-bold text-gray-900">
-                Vehicle History
+                Asset Central
                 <span className="text-blue-600"> Reports</span>
               </h2>
             </div>
@@ -107,7 +107,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Vehicle History Reports. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Asset Central Report. All rights reserved.</p>
         </div>
       </div>
     </footer>
