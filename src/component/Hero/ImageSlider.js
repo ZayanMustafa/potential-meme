@@ -1,6 +1,6 @@
 // components/ImageSlider.js
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 
 const ImageSlider = ({ images, currentSlide, setCurrentSlide }) => {

@@ -21,8 +21,8 @@ const HeroSection = () => {
   const images = [
     { id: 1, src: '/car.jpg', alt: 'Car report' },
     { id: 2, src: '/bike.jpg', alt: 'Bike report' },
-    { id: 3, src: '/truck.jpeg', alt: 'Truck report' },
-    { id: 4, src: '/craft.jpg', alt: 'Ship report' },
+    { id: 3, src: '/truck.jpg', alt: 'Truck report' },
+    { id: 4, src: '/boat.jpg', alt: 'Ship report' },
   ];
 
   const handleInputChange = (e) => {

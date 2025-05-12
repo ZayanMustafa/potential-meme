@@ -15,7 +15,6 @@ const countries = [
   { code: 'ca', name: 'Canada', image: 'https://flagcdn.com/w80/ca.png' },
   { code: 'de', name: 'Germany', image: 'https://flagcdn.com/w80/de.png' },
   { code: 'fr', name: 'France', image: 'https://flagcdn.com/w80/fr.png' },
-  // Add all other countries...
 ];
 
 const TrustedWorldwide = () => {
