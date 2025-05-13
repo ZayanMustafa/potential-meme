@@ -64,20 +64,23 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://ideal-tribble.vercel.app/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: customerInfo.name,
-          email: customerInfo.email,
-          phoneNumber: customerInfo.phoneNumber,
-          vinNumber: customerInfo.vinNumber,
-          vehicleModel: customerInfo.vehicleModel,
-          year: customerInfo.year.toString(),
-        }),
-      });
+      const response = await fetch(
+        "https://assetreportbackend.vercel.app/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: customerInfo.name,
+            email: customerInfo.email,
+            phoneNumber: customerInfo.phoneNumber,
+            vinNumber: customerInfo.vinNumber,
+            vehicleModel: customerInfo.vehicleModel,
+            year: customerInfo.year.toString(),
+          }),
+        }
+      );
 
       const data = await response.json();
 
