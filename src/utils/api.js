@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://assetreportbackend.vercel.app";
+const API_BASE_URL = "https://ideal-tribble-alpha.vercel.app";
 
 export const fetchOrders = async () => {
   try {

@@ -65,7 +65,7 @@ const CustomerForm = ({ customerInfo, setCustomerInfo, setStep }) => {
 
     try {
       const response = await fetch(
-        "https://assetreportbackend.vercel.app/orders",
+        "https://ideal-tribble-alpha.vercel.app/orders",
         {
           method: "POST",
           headers: {

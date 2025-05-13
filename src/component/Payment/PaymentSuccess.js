@@ -20,7 +20,7 @@ const PaymentSuccess = ({ transactionId, plan, amount, paymentMethod }) => {
         }
 
         const response = await fetch(
-          `https://assetreportbackend.vercel.app/orders/admin/${orderId}`,
+          `https://ideal-tribble-alpha.vercel.app/orders/admin/${orderId}`,
           {
             method: "PUT",
             headers: {
